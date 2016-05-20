@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			UI元素状态伪类选择器_通用兄弟选择器
+		</title>
+		<!--css3中结构性伪类选择器的共同特征是允许开发者根据文档中的结构来指定元素的样式-->
+		<style type="text/css">
+		input[type="text"]:enabled{
+			background: yellowgreen;
+		}
+		input[type="text"]:disabled{
+			background: gray;
+		}
+		input[type="text"]:active{
+			background: red;
+		}	
+		input[type="checkbox"]:checked{
+			background: red;
+			outline: 2px solid gold;
+		}
+		/*input[type="text"]:enabled{
+			background: yellowgreen;
+		}
+		input[type="text"]:disabled{
+			background: gray;
+		}*/
+		/*与div相邻的所有兄弟p元素  div ~ p*/
+		/*div ~ p*/
+		div ~ p{
+			background-color: gold;
+		}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function radio_change(){
+				var radio1 = document.getElementById("radio1");
+				var radio2 = document.getElementById("radio2");
+				var text = document.getElementById("text");
+				if(radio1.checked){
+					text.disabled = "";
+				}else{
+					text.value = "";
+					text.disabled = "disabled";
+				}
+			}
+		</script>
+		<div>
+			<div>
+				<p>div的子元素</p>
+				<p>div的子元素</p>
+				<p>div的子元素</p>
+		    </div>
+			<p>div的兄弟元素</p>
+			<p>div的兄弟元素</p>
+			<p>div的兄弟元素</p>
+			<p>div的兄弟元素</p>
+		</div>
+		<p>外面div的兄弟元素</p>
+		<p>外面div的兄弟元素</p>
+		<input type="radio" name="radio" id="radio1" onchange="radio_change()">可用
+		<input type="radio" name="radio" id="radio2" onchange="radio_change()">不可用
+		<input type="text" id="text" disabled>
+		<input type="text" name="name" />	
+		<input type="text" name="age" />
+		<input type="checkbox"/>阅读
+		<input type="checkbox" value="旅游" />旅游
+		<input type="checkbox" value="movie" />movie
+		<input type="checkbox" value="networking" />networking
+	</body>
+</html>

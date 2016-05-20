@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			选择器root_not_empty_target
+		</title>
+		<!--css3中结构性伪类选择器的共同特征是允许开发者根据文档中的结构来指定元素的样式-->
+		<style type="text/css">
+			/*li:first-child{
+				background: yellow;
+			}*/
+			/*li:last-child*/	
+			/*li:nth-child(3){
+				background: red;
+			}*/
+			/*li:nth-last-child()*/
+			/*同级所有类型兄弟*/
+			li:nth-last-child(odd){
+				background: green;
+			}
+			/*li:nth-last-child(even)*/
+			/*同级相同类型兄弟*/
+			h2:nth-of-type(odd){
+				background: lightblue;
+			}
+			
+			li:nth-child(3n+1){
+				background-color: purple;
+			}
+			li:nth-child(3n+2){
+				background-color: mediumpurple;
+			}
+			li:nth-child(3n){
+				background-color: plum;
+			}
+			li:only-child{
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>list</h1>
+		<ul>
+			<li>只有我一个列表项</li>
+		</ul>
+		<ul>
+			<li>只有我一个列表项</li>
+		</ul>
+		<ul>
+			<li>list1</li>
+			<li>list1</li>
+			<li>list1</li>
+			<li>list1</li>
+			<li>list1</li>
+			<li>list1</li>
+			<li>list1</li>
+			<li>list1</li>
+			<li>list1</li>
+			<li>list1</li>
+			<li>list1</li>
+			<li>list1</li>
+		</ul>
+		<h2>article titel</h2>
+		<p>article content</p>
+		<h2>article titel</h2>
+		<p>article content</p>
+		<h2>article titel</h2>
+		<p>article content</p>
+		<h2>article titel</h2>
+		<p>article content</p>
+		<h2>article titel</h2>
+		<p>article content</p>
+	</body>
+</html>

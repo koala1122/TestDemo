@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		/*背景图片 位置相关*/
+			/*div{
+				background-color: black;
+				border: dashed 15px green;
+				padding: 30px;
+				color: white;
+				font-size: 30px;
+				font-weight: bold;
+				background-image: url(Close.png);
+				background-repeat: no-repeat;
+				border-radius: 10px 20px 30px 40px;/*圆角*/
+			}*/
+			#div1{
+				background-clip: border-box;
+				background-origin: border-box;
+				
+			}
+			#div2{
+				margin-top: 40px;
+				background-clip: padding-box;
+				background-origin: padding-box;
+			}
+			#div3{
+				margin-top: 40px;
+				background-clip: content-box;
+				background-origin: content-box;
+			}
+			/*在一个元素中显示多个背景图片*/
+			#div6{
+				background-image: url("home_exchange_icon.png"),url("banner01.png");
+				background-repeat: repeat-x,no-repeat;
+				background-position: 100%,100%,center,left;
+				width: 800px;
+				height: 800px;
+			}
+			/*使用图像边框*/
+			#div5{
+				-webkit-border-image: url("../app-icon80.png") 50 50 50 50;
+				
+				width: 600px;
+				height: 600px;
+				background: burlywood;
+				border: 30px;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div id="div1">实例文本1</div>
+		<div id="div2">实例文本2</div>
+		<div id="div3">实例文本3实例文本3实例文本3<br/><br/><br/><br/></div>
+		
+		<br />
+		<div id="div4">实例文本1</div>
+		<div id="div5">实例文本2</div>
+		<div id="div6">实例文本3实例文本3实例文本3<br/><br/><br/><br/></div>
+		<!--<div id="div4">实例文本4</div>-->
+	</body>
+</html>

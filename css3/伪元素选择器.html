@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			伪元素选择器
+		</title>
+		<style type="text/css">
+			p:first-line{
+				color: crimson;
+			}
+			p:first-letter{
+				color: darkblue;
+			}
+			li:before{
+				content: "--在前面加点东西";
+			}
+			li:after{
+				content: "在后面加点东西";
+				font-size: 1rem;
+				color: lightgray;
+			}
+		</style>
+	</head>
+	<body>
+		<p>这是第一行的内容<br />第二行</p>
+		<ul>
+			<li>列表1</li>
+			<li>列表1</li>
+			<li>列表1</li>
+			<li>列表1</li>
+		</ul>
+	</body>
+</html>

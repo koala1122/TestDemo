@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		/*text-shadow*/
+			#testTextAttr{
+				text-shadow: 5px 5px 10px red;
+				color: black;
+				font-size: 40px;
+				font-family: "宋体";
+				font-weight: bold;
+				background-image: url("../app-icon80.png");
+				height: 200px;
+				width: 100px;
+				padding: 30px 0;
+				text-align: center;
+			}
+			/*使用服务器端字体*/
+			/*word-break:normal keep-all break-all*/
+			@font-face {
+				font-family:WebFont;
+				src: local("Arial");
+					 url('../SFNSDisplay-Bold.otf')format("truetype");
+					 /*字体有引入本地的，没有引入服务器的*/
+				/*src: url('../SFNSDisplay-Bold.otf')format("truetype")*/
+			}
+			#testFont{
+				font-family: webFont;
+			}
+			/*修改文字种类而保持字体尺寸不变*/
+			#div1{
+				font-family: "microsoft yahei";
+				font-size: 20px;
+				/*font-size-adjust: 0.4;*/
+			}
+			#div2{
+				font-family: cursive;
+				font-size: 20px;
+				/*font-size-adjust: 0.8;*/
+			}
+			#div3{
+				font-family: "microsoft sans serif";
+				font-size: 20px;
+				/*font-size-adjust: 0.60;*/
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!--text-shadow length length color-->
+		<div id="testFont">
+			你好吗？你好嘿嘿   呵呵哈哈哈
+		</div>
+		<div id="testTextAttr">
+			你好
+		</div>
+		<div id="div1">实例文本1</div>
+		<div id="div2">实例文本2</div>
+		<div id="div3">实例文本3</div>
+		<div id="div4">实例文本4</div>
+	</body>
+</html>

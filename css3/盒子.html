@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			table{
+				display: inline-table;
+			}
+			td{
+				border: solid 1px purple;
+			}
+			div{
+				display: list-item;/*以列表去显示*/
+				list-style-type: circle;
+				margin-left: 30px;
+			}
+			/*对盒子中容纳不下内容的显示方法 overflow:hidden*/
+			#overflow{
+				/*overflow: hidden;*/
+				/*overflow: scroll;*/
+				/*overflow: auto;*/
+				/*overflow: visible;*/
+				overflow-x: scroll;
+				overflow-y: hidden;
+				white-space: nowrap;/*不换行*/
+				width: 100px;
+				height: 200px;
+				border: solid 1px orange;
+			}
+			/*对盒子使用阴影*/
+			#boxshadow{
+				background: orange;
+				box-shadow: 10px 10px 10px gray;
+				width: 200px;
+				height: 100px;
+			}
+			/*指定针对元素的宽度和高度的计算方法*/
+			#div1{
+				box-sizing: content-box;/*不包括边距*/
+				width: 100px;
+				height: 100px;
+				padding: 10px;
+				background: green;
+			}
+			#div2{
+				box-sizing: border-box;
+				width: 100px;
+				height: 100px;
+				padding: 10px;
+				background: blue;
+			}
+			
+		</style>
+	</head>
+	<body>
+		你好上
+		<table border="solid 1px #00aaff" cellspacing="5px" cellpadding="10px">
+			<tr><th>list</th></tr>
+			<tr>
+				<td>Data1</td>
+				<td>Data1</td>
+				<td>Data1</td>
+				<td>Data1</td>
+			</tr>
+		</table>
+		你好下
+		<div id="div1">实例文本1</div>
+		<div id="div2">实例文本2</div>
+		<div id="div3">实例文本3</div>
+		<div id="div4">实例文本4</div>
+		<div id="overflow">
+			<h1>title123</h1>
+			<p>实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例
+				文本4实例文本4实例文本4</p>
+			<p>实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例
+			文本4实例文本4实例文本4</p>
+			<p>实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例
+			文本4实例文本4实例文本4</p>
+			<p>实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例文本4实例
+			文本4实例文本4实例文本4</p>
+		</div>
+		<div id="boxshadow">
+			
+		</div>
+			
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			结构性伪类选择root_not_empty_target
+		</title>
+		<!--css3中结构性伪类选择器的共同特征是允许开发者根据文档中的结构来指定元素的样式-->
+		<style type="text/css">
+			/*root*/
+			:root{
+				background-color: gray;
+			}
+			body{/*如果定义了root body就只会定义内容部分*/
+				background: darkblue;
+			}
+			div *:not(h1){/*排除某个子节点*/
+				color: greenyellow;
+			}
+			:empty{
+				background: darkcyan;
+			}
+			:target{
+				background: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<div >
+			how are you?
+			<h2>hello</h2>
+			<h1>title</h1>
+			<p>pragradfafjdfjakljglka</p>
+		</div>
+		<table border="1" cellspacing="12" cellpadding="12">
+			<tr>
+				<th>sometitle</th>
+				<td>xontent1</td>
+				<td>xontent2</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>sometitle</th>
+				<td>xontent1</td>
+				<td>xontent2</td>
+				<td></td>
+			</tr>
+			<br />
+			<a href="#a1">menu1</a>
+			<a href="#a2">menu2</a>
+			<a href="#a3">menu3</a>
+			<a href="#a4">menu4</a>
+			<div id="a1">
+				<h1>菜单1</h1>
+				<p>菜单1内容</p>
+			</div>
+			<div id="a2">
+				<h1>菜单2</h1>
+				<p>菜单1内容</p>
+			</div>
+			<div id="a3">
+				<h1>菜单3</h1>
+				<p>菜单1内容</p>
+			</div>
+			<div id="a4">
+				<h1>菜单4</h1>
+				<p>菜单1内容</p>
+			</div>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>html5test</title>
+	</head>
+
+	<body>
+		<!--1全局属性-->
+		<h3>1全局属性</h3>
+		<h4>可编辑列表</h4>
+		<ul contenteditable="" tabindex="-1">
+			<!--不能获取焦点-->
+			<li hidden="true">list1</li>
+			<li spellcheck="true">list1</li>
+
+			<li>list1</li>
+		</ul>
+		<br />
+		<!--设置元素的 Tab 键控制次序。 值有a 和表单可tab键 其它可以通过tabinde获取-->
+		<a href="#" tabindex="1">hello</a>
+		<a href="#" tabindex="3">hello</a>
+		<a href="#" tabindex="2">hello</a>
+		<hr /><br />
+		<!--html5新增主题结构元素-->
+		<!--article 某块内容完整独立-->
+		<h3>html5新增主题结构元素</h3>
+		<h4>article 某块内容完整独立</h4>
+		<article>
+			<header>
+				<h1>article</h1>
+				<p>welcome</p>
+			</header>
+			<p>hello</p>
+			<footer>
+				<article>
+					<header>author</header>
+					<p>commend</p>
+					<footer>
+						<p>time</p>
+					</footer>
+				</article>
+				<p>这是底部</p>
+			</footer>
+		</article>
+		<!--<article>
+			<h1>这是内嵌页面</h1>
+			<object>
+				<embed src="#" width="600" height="400"></embed>
+			</object>
+		</article>-->
+		<hr />
+		<!--section 把内容分块 可以article互相嵌套 
+			注意1.能用article、aside、nav 不用section
+				2.不要减section作为设置样式的页面容器
+				3.没有标题内容不要使用section元素
+		-->
+		<section>
+			<h1>section</h1>
+			<p>这是section test</p>
+		</section>
+		<hr />
+		<!--nav 不要用menu代替nav-->
+		<nav>
+			<ul>
+				<li><a href="#">主页</a></li>
+				<li><a href="#">文档</a></li>
+			</ul>
+		</nav>
+		<hr />
+		<h4>aside</h4>
+		<!--aside-->
+		<!--标签定义及使用说明：<aside> 标签定义 <article> 标签外的内容。
+								  aside 的内容应该与附近的内容相关。
+			提示：<aside> 的的内容可用作文章的侧栏。-->
+		<aside>
+			<nav>
+				<h4>评论</h4>
+				<ul>
+					<li>good</li>
+				</ul>
+
+			</nav>
+		</aside>
+		<article>
+			<header>title</header>
+			<p>content</p>
+			<aside>
+				<h4>名词解释</h4>
+				<p>语法</p>
+			</aside>
+			<footer>
+				<p>time</p>
+			</footer>
+		</article>
+		<hr />
+		<h4>time</h4>
+		<!--time-->
+		<time datetime="2016-5-17" pubdate>2016-5-17</time>
+		<time datetime="2016-5-17T09:30">2016-5-17</time>
+		<time datetime="2016-5-17T09:30Z">2016-5-17</time>
+		<time datetime="2016-5-17T09:30+09:00">2016-5-17</time>
+		<hr /> pubdate pudate属性是一个可选的、boolean值的属性，它可以用到article元素中的time元素上，代表文章或整个网页的发布日期pubdate属性的具体使用方法如下代码所示。
+		<h1>关于<time datetime=2011-7-11>7月11日</time>会议的通知</h1>
+		<p>发布日期：<time datetime=2011-7-11 pubdate></time>2011年7月11日</p>
+		<hr />
+		<hr />
+		<!--html5新增非主体结构元素-->
+		<h4>html5新增非主体结构元素</h4>
+		<h4>header</h4>
+		<p>&lt;header&gt; 标签定义文档或者文档的一部分区域的页眉。 &lt;header&gt;元素应该作为介绍内容或者导航链接栏的容器。 在一个文档中，您可以定义多个 &lt;header&gt; 元素。 注释：&lt;header&gt; 标签不能被放在 &lt;footer&gt;、&lt;address&gt; 或者另一个 header 元素内部</p>
+		<article>
+			<header>
+				<h1>Internet Explorer 9</h1>
+				<p><time pubdate datetime="2011-03-15"></time></p>
+			</header>
+			<p>Windows Internet Explorer 9 (abbreviated as IE9) was released to the public on March 14, 2011 at 21:00 PDT.....</p>
+		</article>
+		<hr />
+		<h4>footer hgroup</h4>
+		<footer>
+			<p>Posted by: Hege Refsnes</p>
+			<p><time pubdate datetime="2012-03-01"></time></p>
+		</footer>
+		<article>
+			<header>
+				<hgroup>
+					<h1>这是文章标题</h1>
+					<h2>这是一个子标题</h2>
+				</hgroup>
+				<p>
+					<time datetime="2016-10-10"></time>
+				</p>
+			</header>
+			<div id="content">
+				这是内容
+			</div>
+			<footer>
+				<p>这是文章的底部</p>
+			</footer>
+		</article>
+		<hr />
+		<h4>address</h4>
+		<div>
+			<address>
+				Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br> 
+				Visit us at:<br>
+				Example.com<br>
+				Box 564, Disneyland<br>
+				USA
+			</address>
+		</div>
+		<hr />
+		<h4>网页编排规则</h4>
+		<div>
+			<p>1.显示编排内容区域块</p>
+			<p>2.隐式</p>
+			<p>标题分级</p>
+			<p>不同区域块使用相同标题</p>
+		</div>
+		<hr />
+		<hr />
+		<h3>表单新增元素与属性</h3>
+		<h4>form属性</h4>
+		<div>
+			<form id="testform">
+				<input type="text">
+			</form>
+			<textarea form="testform" name="test" rows="4" cols="4"></textarea>
+		</div>
+		<hr />
+		<h4>formaction属性  <h5>在HTML5中，可以为所有的提交按钮，增加不同的formaction</h5></h4>
+		<h4>autocomplete属性</h4>
+		<form action="demo-form.php" autocomplete="on">
+			First name:<input type="text" name="fname"><br> Last name: <input type="text" name="lname"><br> E-mail: <input type="email" name="email" autocomplete="off"><br>
+			<input type="submit"><br />
+				<input type="submit" name="s1" value="v1" formaction="http://localhost:8080/hellojsp01/index.jsp">提交到xx.jsp页面
+				<input type="submit" name="s2" value="v2" formaction="http://localhost:8080/hellojsp01/test2.jsp">提交到xx.jsp页面
+				<input type="submit" name="s3" value="v3" formaction="http://localhost:8080/hellojsp01/test3.jsp">提交到xx.jsp页面
+		</form>
+		<hr />
+		<h4>formmethod </h4>
+		<form >
+			<!--text/plain：空格转加号，不对特殊字符进行编码-->
+			<input type="submit" name="s1" value="v1" formtarget="_blank" formaction="http://localhost:8080/hellojsp01/index.jsp" formmethod="post">提交到xx.jsp页面
+			<!--multipart/form-data：不对特殊字符进行编码，含文件上传的表单 必须此值-->
+			<input type="submit" name="s2" value="v2" formtarget="_parent"formenctype="multipart/form-data" formaction="http://localhost:8080/hellojsp01/test2.jsp" formmethod="get">提交到xx.jsp页面
+			<!--发送前编码所有字符 当为get时，也转换-->
+			<input type="submit" name="s3" value="v3" formtarget="_self"formenctype="application/x-www-form-urlencoded" formaction="http://localhost:8080/hellojsp01/test3.jsp">提交到xx.jsp页面
+		</form>
+		<hr />
+		<h4>formenctype</h4>
+		<p>
+			formenctype 属性描述了表单提交到服务器的数据编码 (只对form表单中 method="post" 表单)
+			formenctype 属性覆盖 form 元素的 enctype 属性。
+		</p>
+		<hr />
+		<h4>formtarget </h4>
+		<p>formtarget 属性指定一个名称或一个关键字来指明表单提交数据接收后的展示。</p>
+ 		<p>formtarget 属性覆盖 <form>元素的target属性.</p>
+		<p>注意: formtarget 属性与type="submit" 和 type="image"配合使用.</p>
+		<hr />
+		<h4>autofocus </h4>
+		<form action="http://localhost:8080/hellojsp01/index.jsp" method="post">
+			FirstName:<input type="text" formtarget="_blank" name="fname" autofocus="autofocus" required>
+			<input type="submit"/>
+		</form>
+		<h4>required</h4>
+		<form action="http://localhost:8080/hellojsp01/index.jsp">
+			<p>注意在Hbuilder中便改变看中 看到效果不对</p>
+			<input type="text" required/>
+			<!--<input type="submit" value="submit"/>-->
+			<button type="submit">submit</button>
+		</form>
+		<h4>labels </h4>
+		<form id="txt_form" action="" method="post">
+			<label id="label" for="txt_name">姓名</label>
+			<input id="txt_name" />
+			<input type="button" id="btnValidate" value="验证" onclick="Validate()"/>
+		</form>
+		<script type="text/javascript">
+			function Validate(){
+				var txtName = document.getElementById("txt_name");
+				var button = document.getElementById("btnValidate");
+				var form = document.getElementById("txt_form");
+				if(txtName.value.trim()==""){
+					var label = document.createElement("label");
+					label.setAttribute("for","txt_name");
+					form.insertBefore(label,button);
+					txtName.labels[1].innerHTML = "请输入姓名";
+					txtName.labels[1].setAttribute("style","font-size: 9px;color: red;")
+				}
+			}
+		</script>
+	</body>
+
+</html>

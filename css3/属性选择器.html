@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			属性选择器
+		</title>
+		<style type="text/css">
+			[id*=div]{
+				color: green;
+			}
+			/*首字符*/
+			[id^=div]{
+				color: red;
+			}
+			/*结束字符*/
+			[id$=y]{
+				color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">实例文本1</div>
+		<div id="div2">实例文本2</div>
+		<div id="div3">实例文本3</div>
+		<div id="div4">实例文本4</div>
+		<div id="my">test</div>
+	</body>
+</html>
