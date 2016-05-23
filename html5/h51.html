@@ -175,40 +175,41 @@
 		<form action="demo-form.php" autocomplete="on">
 			First name:<input type="text" name="fname"><br> Last name: <input type="text" name="lname"><br> E-mail: <input type="email" name="email" autocomplete="off"><br>
 			<input type="submit"><br />
-				<input type="submit" name="s1" value="v1" formaction="http://localhost:8080/hellojsp01/index.jsp">提交到xx.jsp页面
-				<input type="submit" name="s2" value="v2" formaction="http://localhost:8080/hellojsp01/test2.jsp">提交到xx.jsp页面
-				<input type="submit" name="s3" value="v3" formaction="http://localhost:8080/hellojsp01/test3.jsp">提交到xx.jsp页面
+			<input type="submit" name="s1" value="v1" formaction="http://localhost:8080/hellojsp01/index.jsp">提交到xx.jsp页面
+			<input type="submit" name="s2" value="v2" formaction="http://localhost:8080/hellojsp01/test2.jsp">提交到xx.jsp页面
+			<input type="submit" name="s3" value="v3" formaction="http://localhost:8080/hellojsp01/test3.jsp">提交到xx.jsp页面
 		</form>
 		<hr />
 		<h4>formmethod </h4>
-		<form >
+		<form>
 			<!--text/plain：空格转加号，不对特殊字符进行编码-->
 			<input type="submit" name="s1" value="v1" formtarget="_blank" formaction="http://localhost:8080/hellojsp01/index.jsp" formmethod="post">提交到xx.jsp页面
 			<!--multipart/form-data：不对特殊字符进行编码，含文件上传的表单 必须此值-->
-			<input type="submit" name="s2" value="v2" formtarget="_parent"formenctype="multipart/form-data" formaction="http://localhost:8080/hellojsp01/test2.jsp" formmethod="get">提交到xx.jsp页面
+			<input type="submit" name="s2" value="v2" formtarget="_parent" formenctype="multipart/form-data" formaction="http://localhost:8080/hellojsp01/test2.jsp" formmethod="get">提交到xx.jsp页面
 			<!--发送前编码所有字符 当为get时，也转换-->
-			<input type="submit" name="s3" value="v3" formtarget="_self"formenctype="application/x-www-form-urlencoded" formaction="http://localhost:8080/hellojsp01/test3.jsp">提交到xx.jsp页面
+			<input type="submit" name="s3" value="v3" formtarget="_self" formenctype="application/x-www-form-urlencoded" formaction="http://localhost:8080/hellojsp01/test3.jsp">提交到xx.jsp页面
 		</form>
 		<hr />
 		<h4>formenctype</h4>
 		<p>
-			formenctype 属性描述了表单提交到服务器的数据编码 (只对form表单中 method="post" 表单)
-			formenctype 属性覆盖 form 元素的 enctype 属性。
+			formenctype 属性描述了表单提交到服务器的数据编码 (只对form表单中 method="post" 表单) formenctype 属性覆盖 form 元素的 enctype 属性。
 		</p>
 		<hr />
 		<h4>formtarget </h4>
 		<p>formtarget 属性指定一个名称或一个关键字来指明表单提交数据接收后的展示。</p>
- 		<p>formtarget 属性覆盖 <form>元素的target属性.</p>
+		<p>formtarget 属性覆盖
+			<form>元素的target属性.</p>
 		<p>注意: formtarget 属性与type="submit" 和 type="image"配合使用.</p>
 		<hr />
 		<h4>autofocus </h4>
 		<form action="http://localhost:8080/hellojsp01/index.jsp" method="post">
 			FirstName:<input type="text" formtarget="_blank" name="fname" autofocus="autofocus" required>
-			<input type="submit"/>
+			<input type="submit" />
 		</form>
 		<h4>required</h4>
 		<form action="http://localhost:8080/hellojsp01/index.jsp">
 			<p>注意在Hbuilder中便改变看中 看到效果不对</p>
+			Country code: <input type="text" name="country_code" pattern="[A-Z]{3}" title="Three letter country code">
 			<input type="text" required/>
 			<!--<input type="submit" value="submit"/>-->
 			<button type="submit">submit</button>
@@ -217,22 +218,193 @@
 		<form id="txt_form" action="" method="post">
 			<label id="label" for="txt_name">姓名</label>
 			<input id="txt_name" />
-			<input type="button" id="btnValidate" value="验证" onclick="Validate()"/>
+			<input type="button" id="btnValidate" value="验证" onclick="Validate()" />
+		</form>
+		<hr />
+		<h4>control </h4>
+		<form>
+			<label id="label2">
+				邮编：
+				<input id="txt_zip" maxlength="6" placeholder="please input" />
+				<small>请输入6位数字</small>
+			</label>
+			<input type="button" value="set up difault" onclick="setValue()" />
+		</form>
+		<hr />
+		<h4>list </h4>
+		<p>list 属性规定输入域的 datalist。datalist 是输入域的选项列表。</p>
+		<input list="browsers">
+		<datalist id="browsers">
+		  <option value="Internet Explorer">
+		  <option value="Firefox">
+		  <option value="Chrome">
+		  <option value="Opera">
+		  <option value="Safari">
+		</datalist>
+		<hr />
+		<h4>autocomplete </h4>
+		<p>form 、input autocomplete 属性 autocomplete 属性规定 form 或 input 域应该拥有自动完成功能。 当用户在自动完成域中开始输入时，浏览器应该在该域中显示填写的选项。 提示: autocomplete 属性有可能在 form元素中是开启的，而在input元素中是关闭的。 注意: autocomplete 适用于
+			<form> 标签，以及以下类型的 <input> 标签：text, search, url, telephone, email, password, datepickers, range 以及 color。</p>
+		<hr />
+		<h4>pattern </h4>
+		<p>pattern 属性描述了一个正则表达式用于验证 input 元素的值。 注意:pattern 属性适用于以下类型的 标签: text, search, url, tel, email, 和 password. 提示： 是用来全局 title 属性描述了模式. 提示： 您可以在我们的 JavaScript 教程中学习到有关正则表达式的内容</p>
+		Country code: <input type="text" name="country_code" pattern="[A-Z]{3}" title="Three letter country code">
+		<hr />
+		<h4>selectionDirection </h4>
+		<form>
+
+			<input type="test" name="text" />
+			<input type="button" value="点击我" onclick="AD()" />
 		</form>
 		<script type="text/javascript">
-			function Validate(){
+			function AD() {
+				var control = document.forms[0]['text'];
+				var direction = control.selectionDirection;
+				alert(direction);
+			}
+		</script>
+		<hr />
+		<h4>indeterminate </h4>
+		<input type="checkbox" name="" id="cb" value="" indeterminate/>testattri
+		<script type="text/javascript">
+			var cb = document.getElementById("cb");
+			cb.indeterminate = true;
+		</script>
+		<hr />
+		<h4>image 提交按钮height width </h4>
+		<form action="test.jsp" method="post">
+			xingmign:<input type="text" name="name" />
+			<input type="image" src="../app-icon80.png" alt="test" width="50" height="50" />
+		</form>
+		<h3>增加与改良的input元素 </h3>
+		<h4>增加与改良的input元素 </h4>
+		<form action="" method="post" novalidate="true" onsubmit="">
+			<input type="url" name="url" id="url" value="http://www.baidu.com" />
+			<input type="email" name="email" id="email" value="tzh@163.com" />
+			<input type="date" name="birthday" id="birthday" value="" />
+			<input type="date" name="" id="" value="" />
+			<input type="time" name="" id="" value="" />
+			<input type="datetime" name="" id="" value="" />
+			<input type="datetime-local" name="" id="" value="" />
+			<input type="submit" value="提交" />
+			<input type="month" name="" id="" value="" />
+			<input type="week" name="" id="" value="" />
+			<input type="number" name="" id="" value="" min="10" max="100" step="10" />
+			<input type="search" name="" id="" value="" />
+			<input type="tel" name="" id="" value="" />
+			<input type="color" name="" id="" value="" onchange="document.body.style.backgroundColor =this.value" />
+			<!--document.getElementById('currentColor').textContent-->
+			<span id="currentColor"></span>
+			<input type="range" name="" id="testRange" onchange="textRange()" value="10" min="0" max="100" step="5" />
+			<output id="output">10</output>
+		</form>
+		<script type="text/javascript">
+			function textRange() {
+				var email = document.getElementById("email");
+				if (email.value == "") {} else if (!email.checkValidity()) {
+					alert("请输入正确的email")
+				}
+				document.getElementById("output").value = document.getElementById("testRange").value
+			}
+		</script>
+		<form>
+			<input type="number" name="" id="number1" value="" /> +
+			<input type="number" name="" id="number2" value="" /> =
+			<input type="number" name="" id="num3" value="" />
+			<input type="submit" value="jisuan" onclick="cal()" />
+
+		</form>
+		<script type="text/javascript">
+			function cal() {
+				var n1 = document.getElementById("number1").valueAsNumber;
+				var n2 = document.getElementById("number2").valueAsNumber;
+				document.getElementById("num3").valueAsNumber = n1 + n1;
+				document.getElementById("num3").valueAsNumber = n1 + n1;
+			}
+		</script>
+		<script type="text/javascript">
+			function Validate() {
 				var txtName = document.getElementById("txt_name");
 				var button = document.getElementById("btnValidate");
 				var form = document.getElementById("txt_form");
-				if(txtName.value.trim()==""){
+				if (txtName.value.trim() == "") {
 					var label = document.createElement("label");
-					label.setAttribute("for","txt_name");
-					form.insertBefore(label,button);
+					label.setAttribute("for", "txt_name");
+					form.insertBefore(label, button);
 					txtName.labels[1].innerHTML = "请输入姓名";
-					txtName.labels[1].setAttribute("style","font-size: 9px;color: red;")
+					txtName.labels[1].setAttribute("style", "font-size: 9px;color: red;")
 				}
 			}
+
+			function setValue() {
+				var label = document.getElementById("label2");
+				var textbox = label.control;
+				textbox.value = "100010"
+			}
 		</script>
+		<hr />
+		<hr />
+		<h3>增强的页面元素 </h3>
+		<h4>figcaption、figure、summary、mark、details </h4>
+		<p>figure标签规定独立的流内容（图像、图表、照片、代码等等）。 figure元素的内容应该与主内容相关，同时元素的位置相对于主内容是独立的。如果被删除，则不应对文档流产生影响。
+		</p>
+		<p>figcaption 标签为 figure 元素定义标题。 figcaption 元素应该被置于 figure 元素的第一个或最后一个子元素的位置。</p>
+
+		<figure>
+			<img src="img_pulpit.jpg" alt="The Pulpit Rock" width="304" height="228">
+			<figcaption>Fig1. - A view of the pulpit rock in Norway.</figcaption>
+		</figure>
+		<hr />
+		<h4>details</h4>
+		<p> 标签规定了用户可见的或者隐藏的需求的补充细节</p>
+		<p>标签用来供用户开启关闭的交互式控件。任何形式的内容都能被放在 details标签里边。</p>
+		<p> 元素的内容对用户是不可见的，除非设置了 open 属性。</p>
+		<h4>summary</h4>
+		<p>&lt;summary元素应该是 details 元素的第一个子元素。为details素定义一个可见的标题。 当用户点击标题时会显示出详细信息 &gt;
+		</p>
+		<details open="">
+			<summary>Copyright 1999-2011.</summary>
+			<p> - by Refsnes Data. All Rights Reserved.</p>
+			<p>All content and graphics on this web site are the property of the company Refsnes Data.</p>
+		</details>
+		<h4>mark</h4>
+		<p>Do not forget to buy <mark>milk</mark> today.</p>
+		<h4>progress</h4>
+		<p>提示：请将改标签与 JavaScript 一起使用来显示任务的进度。 </p>
+		<p>注释：该标签不适合用来表示度量衡（例如，磁盘空间使用情况或相关的查询结果）。表示度量衡，请使用 meter 标签代替。</p>
+		<p></p>
+		Downloading progress:
+		<progress id="p" style="background-color: #269abc;" max="100"><span>0</span>%</progress>
+		<input type="button" name="" id="" value="dianji" onclick="btn()"/>	
+		<script type="text/javascript">
+			function btn(){
+//				for (var i=0;i<=100;i++) {
+//					setTimeout(function(){
+//						updateprogress(i);
+//					},2000);
+//				}
+				function thread_one(){
+					var i = 0;
+				if(i <= 100){
+					i++;
+					updateprogress(i);
+				}
+			}
+				setInterval(thread_one,100);
+			}
+			
+			
+			function updateprogress(newValue){
+				var preogressBar = document.getElementById("p");
+				preogressBar.value = newValue;
+				preogressBar.getElementsByTagName("span")[0].textContent = newValue;
+			}
+		</script>
+		<h4>meter</h4>
+		<p>标签定义度量衡。仅用于已知最大和最小值的度量,比如：磁盘使用情况，查询结果的相关性等。</p>
+		<p>Display a gauge:</p>
+		<meter value="2" min="0" max="100">2 out of 10</meter><br>
+		<meter value="0.6">60%</meter>
 	</body>
 
 </html>
