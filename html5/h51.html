@@ -374,37 +374,110 @@
 		<p>注释：该标签不适合用来表示度量衡（例如，磁盘空间使用情况或相关的查询结果）。表示度量衡，请使用 meter 标签代替。</p>
 		<p></p>
 		Downloading progress:
-		<progress id="p" style="background-color: #269abc;" max="100"><span>0</span>%</progress>
-		<input type="button" name="" id="" value="dianji" onclick="btn()"/>	
+		<progress id="p" style="background-color: #008000;" max="100"><span>0</span>%</progress>
+		<input type="button" name="" id="" value="dianji" onclick="btn()" />
 		<script type="text/javascript">
-			function btn(){
-//				for (var i=0;i<=100;i++) {
-//					setTimeout(function(){
-//						updateprogress(i);
-//					},2000);
-//				}
-				function thread_one(){
-					var i = 0;
-				if(i <= 100){
-					i++;
-					updateprogress(i);
+			function btn() {
+				//				for (var i=0;i<=100;i++) {
+				//					setTimeout(function(){
+				//						updateprogress(i);
+				//					},2000);
+				//				}
+				var i = 0;
+
+				function thread_one() {
+					if (i <= 100) {
+						i++;
+						updateprogress(i);
+					}
 				}
+				setInterval(thread_one, 100);
 			}
-				setInterval(thread_one,100);
-			}
-			
-			
-			function updateprogress(newValue){
+
+			function updateprogress(newValue) {
 				var preogressBar = document.getElementById("p");
 				preogressBar.value = newValue;
-				preogressBar.getElementsByTagName("span")[0].textContent = newValue;
+				//				preogressBar.getElementsByTagName("span")[0].textContent = newValue;
 			}
 		</script>
 		<h4>meter</h4>
 		<p>标签定义度量衡。仅用于已知最大和最小值的度量,比如：磁盘使用情况，查询结果的相关性等。</p>
 		<p>Display a gauge:</p>
-		<meter value="2" min="0" max="100">2 out of 10</meter><br>
+		<meter value="91" min="0" max="100" low="30" high="90" optimum="80">2 out of 10</meter><br>
 		<meter value="0.6">60%</meter>
+		<h4>ol dl cite small</h4>
+		<p>start HTML5不支持，不赞成使用。请使用样式取代它。 规定列表中的起始点。</p>
+		<ol reversed="">
+			<li>libiao1</li>
+			<li>libiao2</li>
+			<li>libiao3</li>
+			<li>libiao4</li>
+			<li>libiao1</li>
+		</ol>
+		<dl>
+			<dt>Coffee</dt>
+			<dd>Black hot drink</dd>
+			<dt>Milk</dt>
+			<dd>White cold drink</dd>
+		</dl>
+		<p><cite>The Scream</cite> by Edward Munch. Painted in 1893.</p>
+		定义小型文本：
+<p>W3CSchool.cc - the world's largest web development site.</p>
+<p><small>Copyright 1999-2050 by Refsnes Data</small></p>
+<hr />
+<h3>	编辑API range</h3>
+<h4>selection 对象 与range对象的使用</h4>
+<input type="button" name="" id="" value="dianjiwo" onclick="rangeTest()"/>
+<div id="showrange">
+	
+</div>
+<hr />
+<h4>range seletNode方法</h4>
+<div id="range2" style="background-color: #800080;width: 300px;height: 50px;">
+	content
+</div>
+<button onclick="deleteRangeContent(true)">删除内容</button>
+<button onclick="deleteRangeContent(false)">删除元素</button>
+<hr />
+<h4>range setStart</h4>
+<div id="setStart" style="color: red;">
+	这段文字是用来删除的
+</div>
+<button onclick="deleteChar()">删除文字</button>
+<script type="text/javascript">
+	function rangeTest(){
+		var html;
+		var showrangdiv = document.getElementById("showrange");
+		selection = document.getSelection();
+		if(selection.rangeCount > 0){
+			html = "您选取了>"+selection.rangeCount+"<内容<br />";
+			for (var i = 0;i< selection.rangeCount;i++) {
+				var range = selection.getRangeAt(i);
+				html += "第"+(i+1)+"段内容"+range+"<br />";		
+			}
+			showrangdiv.innerHTML = html;
+		}
+	}
+	function deleteRangeContent(onlyContent){
+		var div = document.getElementById("range2");
+		var rangeObj = document.createRange();
+		if(onlyContent){
+			rangeObj.selectNodeContents(div);	
+		}else{
+			rangeObj.selectNode(div);
+
+		}
+					rangeObj.deleteContents();
+	}
+	function deleteChar(){
+		var div = document.getElementById("setStart");
+		var textnode = div.firstChild;
+		var rangeObj = document.createRange();
+		rangeObj.setStart(textnode,1);
+		rangeObj.setEnd(textnode,4);
+		rangeObj.deleteContents();
+	}
+</script>
 	</body>
 
 </html>
