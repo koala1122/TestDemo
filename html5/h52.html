@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h4>range setStartBefore</h4>
+		<table id="mytable" border="1" cellspacing="0" cellpadding="0">
+			<tr>
+				<td>neirong1</td>
+				<td>neirong2</td>
+			</tr>
+			<tr>
+				<td>neirong3</td>
+				<td>neirong4</td></tr>
+		</table>
+		<button onclick="cloneRange()">删除第一行</button>
+		<hr />
+		<h4>range cloneRange</h4>
+		<p id="clonerange">haohfodahf</p>
+		<button onclick="cloneRange()">clone</button>
+		<h4>cloneContents</h4>
+		<div id="cloneContents">
+			nihaoma
+		</div>
+		<button onclick="cloneContents()">clone</button>
+		<hr />
+		<h4>剪切</h4>
+		<div id="srcdiv" style="background-color: red;width: 100px;height: 30px;">
+			nihao
+		</div>
+		<div id="distdiv" style="background-color: green;width: 100px;height: 30px;">
+			
+		</div>
+		<button onclick="moveContent()">剪切</button>
+		<hr />
+		<h4>insertNode</h4>
+		<div id="insert" onmouseup="moveButton()" style="width: 200px;height: 50px;background-color: blue;">
+			hoagaoig嘎嘎哈拉哈嘎哈更好看老公哈理工和
+		</div>
+		<button id="insertt">moveButton</button>
+		<hr />
+		<h4>compareBoundaryPoints</h4>
+		<div style="width: 200px;height: 100px;background-color: blue;">
+			hoagaoig嘎嘎哈拉<b id="boldText">hoghahglagh</b>哈嘎哈更好看老公哈理工和<br />
+		</div>
+		<button onclick="testPlace()">testPlace</button>
+		<hr />
+		<h4>collapse() 方法是范围的边界点重合。如果把参数 toStart 设置为 true，该方法将把范围的结束点设置为与开始点相同的值。否则，它将把范围的开始点设置为与结束点相同的值。range detach() 方法释放一个 Range 对象。</h4>
+		<hr />
+		<script type="text/javascript">
+			function deleteRow(){
+				var table = document.getElementById("mytable");
+				if(table.rows.length > 0){
+					var row = table.rows[0];
+					var rangeObj = document.createRange();
+					rangeObj.setStartBefore(row);
+					rangeObj.setEndAfter(row);
+					rangeObj.deleteContents();
+				}
+			}
+			function cloneRange(){
+				var rangeObj = document.createRange();
+				rangeObj.selectNodeContents(document.getElementById("clonerange"));
+				var rangeClonoe = rangeObj.cloneRange();
+				alert(rangeClonoe.toString());
+			}
+			function cloneContent(){
+				var div = document.getElementById("cloneContents");
+				var rangeObj = document.createRange();
+				rangeObj.selectNodeContents(document.getElementById("cloneContents"));
+				var rangeClonoe = rangeObj.cloneContents();
+				div.appendChild(rangeClonoe);
+				
+			}
+			function moveContent(){
+				var srcDiv = document.getElementById("srcdiv");
+				var distDiv =document.getElementById("distdiv");
+				var rangeObj = document.createRange();
+				rangeObj.selectNodeContents(srcDiv)
+				var docFragment = rangeObj.extractContents();
+				distDiv.appendChild(docFragment);
+			}
+			function moveButton(){
+				var btn  = document.getElementById("insertt");
+				var sel = document.getSelection();
+				if (sel.rangeCount > 0){
+					var range = sel.getRangeAt(0);
+					range.insertNode(btn);
+				}
+			}
+			function testPlace(){
+				var boldText = document.getElementById("boldText");
+				
+				var boldRange = document.createRange();
+				boldRange.selectNodeContents(boldText.firstChild);
+				var sel = document.getSelection();
+				if(sel.rangeCount> 0){
+					var selRange = sel.getRangeAt(0);
+					if(selRange.compareBoundaryPoints(Range.START_TO_START,boldRange)){
+						alert("zaiqianmina");
+					}else {
+						if(selRange.compareBoundaryPoints(Range.END_TO_START)){
+							alert("在出体后面");
+						}
+					}
+				}
+			}
+			
+		</script>
+	</body>
+</html>
